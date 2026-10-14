@@ -334,8 +334,9 @@ df = pd.DataFrame(errors)
 st.subheader("3. Расчет абсолютных погрешностей отдельных звеньев")
 
 show_df = df.copy()
-show_df["Абсолютная погрешность"] = show_df["Абсолютная погрешность"].map(
-    lambda v: round(v, 6)
+
+show_df = show_df.drop(
+    columns=["Абсолютная погрешность"]
 )
 
 st.dataframe(show_df, use_container_width=True)
